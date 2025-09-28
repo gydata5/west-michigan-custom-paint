@@ -1,74 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>West Michigan Custom Paint</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <h1>West Michigan Custom Paint</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- templates/index.html -->
+{% extends "base.html" %}
+{% block title %}Home | West Michigan Custom Paint{% endblock %}
+{% block content %}
 
   <!-- Hero Section -->
   <section id="hero">
     <h2>Classic Cars. Timeless Finish.</h2>
     <p>Expert custom paint and restoration in West Michigan.</p>
-    <a href="#contact" class="btn">Get a Free Quote</a>
+    <a href="{{ url_for('contact') }}" class="btn">Get a Free Quote</a>
   </section>
 
   <!-- About -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>With years of experience restoring and customizing classic cars, Kevin and his team deliver quality craftsmanship with a passion for perfection.</p>
+    <h2><a href="{{ url_for('about') }}">About Us</a></h2>
+    <p>With years of experience restoring and customizing classic cars, Kevin delivers quality craftsmanship with a passion for perfection.</p>
   </section>
 
   <!-- Services -->
   <section id="services">
-    <h2>Services</h2>
+    <h2><a href="{{ url_for('services') }}">Services</a></h2>
     <ul>
       <li>Custom Paint Jobs</li>
       <li>Classic Car Restoration</li>
-      <li>Bodywork & Detailing</li>
-      <li>Touch-ups & Repairs</li>
+      <li>Bodywork &amp; Detailing</li>
+      <li>Touch-ups &amp; Repairs</li>
+      <li>Prices Vary per Vehicle</li>
     </ul>
   </section>
 
   <!-- Portfolio -->
   <section id="portfolio">
-    <h2>Our Work</h2>
+    <h2><a href="{{ url_for('portfolio') }}">Our Work</a></h2>
     <div class="gallery">
-      <img src="images/car1.jpg" alt="Classic Car Example">
-      <img src="images/car2.jpg" alt="Paint Job Example">
-      <img src="images/car3.jpg" alt="Restoration Example">
+      <img src="{{ url_for('static', filename='images/classic.jpg') }}" alt="Classic Car Example">
+      <img src="{{ url_for('static', filename='images/paint-job.jpg') }}" alt="Paint Job Example">
+      <img src="{{ url_for('static', filename='images/bumper.png') }}" alt="Restoration Example">
     </div>
   </section>
 
   <!-- Testimonials -->
   <section id="testimonials">
-    <h2>What Our Clients Say</h2>
+    <h2><a href="{{ url_for('testimonials') }}">What Our Clients Say</a></h2>
     <blockquote>
-      <p>"Kevin did an amazing job on my '67 Mustang. Looks brand new!"</p>
-      <cite>- John D.</cite>
+      <p>"My bumper was in rough condition, brought it in and Kevin was super easy to work with. Gave me updates on everything, price was fair, and he did an amazing job. As you can see in the last picture the bumper looks brand new and I couldn’t be happier!"</p>
+      <cite>- James B.</cite>
     </blockquote>
     <blockquote>
-      <p>"Professional, reliable, and top-notch craftsmanship."</p>
-      <cite>- Sarah M.</cite>
+      <p>"Absolutely the best place to have paint work done! My car is amazing now, gets lots of compliments. Kevin was absolutely amazing to work with, kept me informed every step of the way with pictures. The attention to detail and overall execution was top notch."</p>
+      <cite>- Steve K.</cite>
+    </blockquote>
+    <blockquote>
+      <p>"I had to stop by and see the Calypso LX at West Michigan Custom Paint. It is absolutely 🔥🔥🔥 If you have any parts, cars, bikes or any painting needs give him a call!!"</p>
+      <cite>- Justin W.</cite>
     </blockquote>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
+    <h2><a href="{{ url_for('contact') }}">Contact Us</a></h2>
     <form>
       <input type="text" placeholder="Kevin Blasher" required>
       <input type="email" placeholder="blasherkevin@gmail.com" required>
@@ -77,9 +66,4 @@
     </form>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 West Michigan Custom Paint | Built with Passion </p>
-  </footer>
-</body>
-</html>
+{% endblock %}
